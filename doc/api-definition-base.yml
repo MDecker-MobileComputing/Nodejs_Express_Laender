@@ -1,0 +1,25 @@
+openapi: "3.1.0"
+info:
+  title: REST-API für Länderinformationen
+  version: "1.0.0"
+servers:
+  - url: "/"
+paths: {}
+components:
+  schemas:
+    Land:
+      required: ["code", "name", "hauptstadt"]
+      type: "object"
+      properties:
+        code:
+          type: "string"
+          description: "Primärschlüssel des Landes; ISO-3166-1 Alpha-2 Code"
+        name:
+          type: "string"
+          description: "Deutscher Name des Landes"
+        hauptstadt:
+          type: "string"
+          description: "Hauptstadt des Landes"
+        einwohner:
+          type: "integer"
+          description: "Einwohnerzahl des Landes"
