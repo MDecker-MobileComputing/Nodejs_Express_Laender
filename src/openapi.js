@@ -1,6 +1,7 @@
 import { initialize } from "express-openapi";
 
 import { getLogger } from './logger.js';
+import { istNichtProduktiv } from './modus.js';
 
 const logger = getLogger(import.meta.url);
 
@@ -12,8 +13,6 @@ const logger = getLogger(import.meta.url);
  */
 export function initializeOpenApi(app) {
 
-    const istNichtProduktiv = (process.env.NODE_ENV !== "production");
-
     initialize({
         app,
         apiDoc       : "./doc/api-definition-base.yml",
@@ -22,5 +21,5 @@ export function initializeOpenApi(app) {
         exposeApiDocs: istNichtProduktiv
       });
 
-    logger.info(`OpenAPI initialisiert (Modus: ${istNichtProduktiv ? "DEV/TEST" : "PRODUCTIV"}).`);
+    logger.info("OpenAPI initialisiert");
 }

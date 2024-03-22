@@ -2,6 +2,7 @@ import express from "express";
 
 import { getLogger, registriereHttpLogger } from './logger.js';
 import { initializeOpenApi } from './openapi.js';
+import { modusName } from './modus.js';
 
 const logger = getLogger(import.meta.url);
 
@@ -10,6 +11,9 @@ app.use( express.json() );
 registriereHttpLogger(app);
 
 initializeOpenApi(app);
+
+logger.info(`Betriebsmodus: ${modusName}`);
+
 
 
 const PORT_NUMMER = 8080;
