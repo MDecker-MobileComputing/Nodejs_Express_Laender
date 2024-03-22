@@ -1,8 +1,10 @@
 import express from "express";
 
-import { getLogger, registriereHttpLogger } from './logger.js';
-import { initializeOpenApi } from './openapi.js';
-import { modusName } from './modus.js';
+import { getLogger,
+         registriereHttpLogger }   from './logger.js';
+import { initializeOpenApi }       from './openapi.js';
+import { modusName }               from './modus.js';
+import { datenbankInitialisieren } from './datenbank.js';
 
 const logger = getLogger(import.meta.url);
 
@@ -13,6 +15,8 @@ registriereHttpLogger(app);
 initializeOpenApi(app);
 
 logger.info(`Betriebsmodus: ${modusName}`);
+
+await datenbankInitialisieren();
 
 
 

@@ -1,5 +1,10 @@
 
 node_modules/
 
+# Log-Dateien
 *.log
 *.log.*
+
+
+# Datenbank-Datei von "lowdb"
+db.json

@@ -1,6 +1,6 @@
 import { initialize } from "express-openapi";
 
-import { getLogger } from './logger.js';
+import { getLogger }         from './logger.js';
 import { istNichtProduktiv } from './modus.js';
 
 const logger = getLogger(import.meta.url);
