@@ -3,7 +3,7 @@ info:
   title: REST-API für Länderinformationen
   version: "1.0.0"
 servers:
-  - url: "/"
+  - url: "/api/v1"
 paths: {}
 components:
   schemas:

@@ -8,6 +8,9 @@ const logger = getLogger(import.meta.url);
 
 /**
  * OpenAPI initialisieren.
+ * <br><br>
+ *
+ * Tutorial: https://bump.sh/blog/express-api-openapi
  *
  * @param {*} app Express.js-Objekt
  */

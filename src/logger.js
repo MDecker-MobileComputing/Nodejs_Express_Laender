@@ -4,6 +4,8 @@ import morgan  from "morgan";
 import url     from 'url';
 import winston from "winston";
 
+import { istNichtProduktiv } from './modus.js';
+
 /** Ordner relativ zum Wurzelverzeichnis, in den die Log-Dateien geschrieben werden. */
 const LOG_ORDNER = "logs/";
 
@@ -23,7 +25,7 @@ export function getLogger(importMetaUrl) {
     new winston.transports.File({ filename: `${LOG_ORDNER}/application-error.log`, level: "error" }),
     new winston.transports.File({ filename: `${LOG_ORDNER}/application.log` }),
   ]
-  if (process.env.NODE_ENV !== "production") {
+  if (istNichtProduktiv) {
     transportsArray.push(new winston.transports.Console());
   }
 
