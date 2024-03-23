@@ -10,6 +10,7 @@ const logger = getLogger(import.meta.url);
 
 const app = new express();
 app.use( express.json() );
+app.use( express.static("StatischerWebContent") );
 registriereHttpLogger(app);
 
 initializeOpenApi(app);
