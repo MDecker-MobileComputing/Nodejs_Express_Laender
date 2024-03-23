@@ -8,7 +8,16 @@ export default function () {
     // Unterstützte HTTP-Methoden definieren
     const operations = { GET };
 
-    function GET(req, res, next) {
+    /**
+     * Ein Land anhand des 3-Buchstabencodes zurückgeben.
+     *
+     * @param {*} req Request-Objekt, um Pfadparameter `code`
+     *                auszulesen
+     *
+     * @param {*} res Response-Objekt, um HTTP-Statuscode und
+     *                Antwort-JSON zu setzen
+     */
+    function GET(req, res) {
 
         const laenderCode = req.params.code.trim().toUpperCase();
 
