@@ -1,8 +1,10 @@
-import fs      from "fs";
-import path    from "path";
-import morgan  from "morgan";
-import url     from 'url';
-import winston from "winston";
+import fs              from "fs";
+import path            from "path";
+import morgan          from "morgan";
+import url             from "url";
+import winston         from "winston";
+import DailyRotateFile from "winston-daily-rotate-file";
+
 
 import { istNichtProduktiv } from './modus.js';
 
@@ -20,10 +22,32 @@ export function getLogger(importMetaUrl) {
 
   const dateiname = path.basename(url.fileURLToPath(importMetaUrl));
 
+
+  const rotierendeLogDateiTransport =
+        new DailyRotateFile({
+        filename: `${LOG_ORDNER}/application-%DATE%.log`,
+        datePattern: "YYYY-MM-DD_HH-mm",
+        frequency: "3m", // alle 3 Minuten neues Log-File, für Demo-Zwecke!
+        zippedArchive: true,
+        maxSize: "20m",
+        maxFiles: "5d"
+  });
+
+  rotierendeLogDateiTransport.on("rotate", (dateinameAlt, dateinameNeu) => {
+
+     console.log(`Log-Datei rotiert: ${dateinameAlt} -> ${dateinameNeu}`);
+  });
+  rotierendeLogDateiTransport.on("error", fehler => {
+
+    console.log("Fehler beim Log-Rotate:" + fehler);
+  });
+
+
   // Ziele für die Log-Nachrichten definieren; wenn nicht in Produktionsumgebung, dann zusätzlich auf Konsole ausgeben
   const transportsArray =  [
     new winston.transports.File({ filename: `${LOG_ORDNER}/application-error.log`, level: "error" }),
     new winston.transports.File({ filename: `${LOG_ORDNER}/application.log` }),
+    rotierendeLogDateiTransport
   ]
   if (istNichtProduktiv) {
     transportsArray.push(new winston.transports.Console());

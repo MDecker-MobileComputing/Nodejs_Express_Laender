@@ -2,3 +2,4 @@
 Die Log-Dateien in diesem Verzeichnis werden wegen entsprechenden Einträgen in der Datei
 .gitignore nicht von Git verwaltet. Da man mit Git keine leeren Verzeichnisse pushen kann
 ist deshalb diese Dummy-Datei enthalten.
+
