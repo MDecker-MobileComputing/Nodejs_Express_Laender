@@ -39,6 +39,12 @@ export async function datenbankInitialisieren() {
 }
 
 
+export function queryAlleLaender() {
+
+        return Object.values( datenbank.data );
+}
+
+
 /**
  * Upsert (Update oder Insert) für ein Land.
  *

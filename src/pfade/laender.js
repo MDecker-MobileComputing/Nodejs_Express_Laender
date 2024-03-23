@@ -1,4 +1,6 @@
 
+import { holeAlleLaender } from "../service.js";
+
 /**
  * Operationen für den Pfad "/laender" (Collection).
  * <br><br>
@@ -19,10 +21,9 @@ export default function () {
      */
     function GET(req, res, next) {
 
-        res.status(200).json([
-            { code: "DEU", name: "Deutschland", hauptstadt: "Berlin", einwohner: 84607016 },
-            { code: "FRA", name: "Frankreich" , hauptstadt: "Paris" , einwohner: 68373433 }
-        ]);
+        const laenderArray = holeAlleLaender();
+
+        res.status(200).json( laenderArray );
     }
 
     function POST(req, res, next) {}
