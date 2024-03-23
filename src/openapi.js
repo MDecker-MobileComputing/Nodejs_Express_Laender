@@ -21,14 +21,12 @@ export function initializeOpenApi(app) {
 
     initialize({
         app,
-        apiDoc       : "./doc/api-definition-base.yml",
+        apiDoc       : "./StatischerWebContent/api-definition-base.yml",
         paths        : "./src/pfade",
         docsPath     : "/api-definition", // http://localhost:8080/api/v1/api-definition (JSON-Format)
         exposeApiDocs: istNichtProduktiv
       });
 
-    const swaggerDocument = YAML.load('./doc/api-definition-base.yml');
-    app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
     logger.info("OpenAPI initialisiert");
 }

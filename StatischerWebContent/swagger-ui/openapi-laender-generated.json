@@ -1,0 +1,92 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "REST-API für Länderinformationen",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v1"
+        }
+    ],
+    "paths": {
+        "/laender": {
+            "parameters": [],
+            "get": {
+                "summary": "Liste aller Länder",
+                "operationId": "getLaender",
+                "responses": {
+                    "200": {
+                        "description": "Liste aller Länder",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Land"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Neues Land anlegen",
+                "operationId": "neuesLand",
+                "responses": {
+                    "201": {
+                        "description": "Land erfolgreich angelegt",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Land"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Land existiert bereits",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Land": {
+                "required": [
+                    "code",
+                    "name",
+                    "hauptstadt"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Primärschlüssel des Landes; ISO-3166-1 Alpha-2 Code"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Deutscher Name des Landes"
+                    },
+                    "hauptstadt": {
+                        "type": "string",
+                        "description": "Hauptstadt des Landes"
+                    },
+                    "einwohner": {
+                        "type": "integer",
+                        "description": "Einwohnerzahl des Landes"
+                    }
+                }
+            }
+        }
+    }
+}
