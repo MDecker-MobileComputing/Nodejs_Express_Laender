@@ -1,7 +1,7 @@
 
 node_modules/
 
-# Log-Dateien
+# Log-Dateien (-audio.json für Winston-Logrotate)
 *.log
 *.log.*
 *-audit.json

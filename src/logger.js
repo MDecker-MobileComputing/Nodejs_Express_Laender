@@ -22,17 +22,15 @@ export function getLogger(importMetaUrl) {
 
   const dateiname = path.basename(url.fileURLToPath(importMetaUrl));
 
-
   const rotierendeLogDateiTransport =
         new DailyRotateFile({
         filename: `${LOG_ORDNER}/application-%DATE%.log`,
         datePattern: "YYYY-MM-DD_HH-mm",
-        frequency: "3m", // alle 3 Minuten neues Log-File, für Demo-Zwecke!
+        frequency: "3m", // alle 3 Minuten neues Log-File (für Demo-Zwecke), wird evtl. erst nach Log-Nachricht gemacht
         zippedArchive: true,
         maxSize: "20m",
         maxFiles: "5d"
   });
-
   rotierendeLogDateiTransport.on("rotate", (dateinameAlt, dateinameNeu) => {
 
      console.log(`Log-Datei rotiert: ${dateinameAlt} -> ${dateinameNeu}`);
