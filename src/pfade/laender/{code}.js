@@ -1,4 +1,5 @@
-import { holeLandNachCode } from '../../service.js';
+import { holeLandNachCode }          from "../../service.js";
+import { CUSTOM_HEADER_FEHLER_TEXT } from "../../konstanten.js";
 
 /**
  * Operationen für den Pfad "/laender/:code" (Ressource).
@@ -25,8 +26,8 @@ export default function () {
 
         if ( Object.keys(landObjekt).length === 0 ) {
 
-
             res.status( 404 );
+            res.setHeader( CUSTOM_HEADER_FEHLER_TEXT, `Land mit Code "${neuLand.code}" nicht gefunden.` );
             res.json( {} );
 
         } else {

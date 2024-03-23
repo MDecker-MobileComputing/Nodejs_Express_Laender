@@ -1,0 +1,3 @@
+
+export const CUSTOM_HEADER_FEHLER_TEXT = "X-FEHLER-TEXT";
+

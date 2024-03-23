@@ -1,7 +1,8 @@
-import { getLogger }  from './logger.js';
+import { getLogger }  from "./logger.js";
 
-import { queryAlleLaender } from './datenbank.js';
-import { queryLandByCode  } from './datenbank.js';
+import { queryAlleLaender } from "./datenbank.js";
+import { queryLandByCode  } from "./datenbank.js";
+import { upsertLand       } from "./datenbank.js";
 
 const logger = getLogger(import.meta.url);
 
@@ -42,4 +43,28 @@ export function holeLandNachCode( code ) {
     }
 
     return land;
+}
+
+
+/**
+ * Neues Land in Datenbank speichern.
+ *
+ * @param {*} landObjekt Neues Land-Objekt
+ *
+ * @returns `true`, wenn Land erfolgreich gespeichert wurde,
+ *          sonst `false`.
+ */
+export function neuesLand(landObjekt) {
+
+    const altLand = holeLandNachCode(landObjekt.code);
+    if (altLand) {
+
+        logger.warn(`Land mit Code "${landObjekt.code}" existiert bereits.`);
+        return false;
+    }
+
+    upsertLand(landObjekt);
+
+    const jsonString = JSON.stringify(landObjekt);
+    logger.info("Neues Land gespeichert: " + jsonString);
 }
