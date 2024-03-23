@@ -19,7 +19,7 @@ export function holeAlleLaender() {
 
     if ( laenderArray.length === 0 ) {
 
-        logger.warn("Keine Länder gefunden.");
+        logger.warn("Kein einziges Land gefunden.");
     }
 
     return laenderArray

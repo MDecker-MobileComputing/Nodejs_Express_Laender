@@ -14,6 +14,6 @@
   "scripts": {
     "start": "node src/main.js",
     "watch": "nodemon --ignore db.json src/main.js",
-    "clean": "rimraf ./logs/*"
+    "clean": "rimraf --glob ./logs/*"
   }
 }

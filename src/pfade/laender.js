@@ -31,6 +31,7 @@ export default function () {
         res.status(200).json( laenderArray );
     }
 
+
     /**
      * Funktion für HTTP-POST-Request auf Collection:
      * Neues Land anlegen.
@@ -58,12 +59,28 @@ export default function () {
         }
     };
 
-    /*
+    
     GET.apiDoc = {
         summary: "Liste aller Länder",
-        operationId: "getLaender"
+        operationId: "getLaender",
+        responses: {
+            200: {
+                description: "Liste aller Länder",
+                content: {
+                    "application/json": {
+                        schema: {
+                            type: "array",
+                            items: {
+                                $ref: "#/components/schemas/Land"
+                            }
+                        }
+                    }
+                }
+            }, 
+        }
     };
 
+    /*
     POST.apiDoc = {
         summary: "Neues Land anlegen",
         operationId: "neuesLand"

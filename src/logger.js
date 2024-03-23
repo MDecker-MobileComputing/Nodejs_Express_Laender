@@ -28,6 +28,7 @@ export function getLogger(importMetaUrl) {
         datePattern: "YYYY-MM-DD_HH-mm",
         frequency: "3m", // alle 3 Minuten neues Log-File (für Demo-Zwecke), wird evtl. erst nach Log-Nachricht gemacht
         zippedArchive: true,
+        auditFile: `${LOG_ORDNER}/logrotate-audit.json`, // Datei mit Informationen über rotierte Log-Dateien
         maxSize: "20m",
         maxFiles: "5d"
   });
