@@ -39,9 +39,21 @@ export async function datenbankInitialisieren() {
 }
 
 
+/**
+ * Liefert Array aller Länder zurück
+ *
+ * @returns Array mit allen Länderobjekten, sortiert aufsteigend
+ *          nach dem Ländercode.
+ */
 export function queryAlleLaender() {
 
-        return Object.values( datenbank.data );
+    const laenderArray = Object.values( datenbank.data );
+
+    const sortiertFunktion = (land1, land2) => land1.code.localeCompare( land2.code );
+
+    const ergebnisSortiertArray = laenderArray.sort( sortiertFunktion );
+
+    return ergebnisSortiertArray;
 }
 
 
