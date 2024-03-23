@@ -83,6 +83,15 @@ export default function () {
     POST.apiDoc = {
         summary: "Neues Land anlegen",
         operationId: "neuesLand",
+        requestBody: {
+            content: {
+                'application/json': {
+                    schema: {
+                        $ref: '#/components/schemas/Land'
+                    }
+                }
+            }
+        },        
         responses: {
             201: {
                 description: "Land erfolgreich angelegt",
