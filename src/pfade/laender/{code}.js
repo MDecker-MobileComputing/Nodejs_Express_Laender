@@ -27,7 +27,7 @@ export default function () {
         if ( Object.keys(landObjekt).length === 0 ) {
 
             res.status( 404 );
-            res.setHeader( CUSTOM_HEADER_FEHLER_TEXT, `Land mit Code "${neuLand.code}" nicht gefunden.` );
+            res.setHeader( CUSTOM_HEADER_FEHLER_TEXT, `Land mit Code "${laenderCode}" nicht gefunden.` );
             res.json( {} );
 
         } else {
