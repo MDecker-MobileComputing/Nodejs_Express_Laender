@@ -83,7 +83,7 @@ export async function upsertLand(landObjekt) {
     datenbank.data[ landObjekt.code ] = landObjekt;
     await datenbank.write();
 
-    logger.info(`Land "${land.code}" gespeichert.`);
+    logger.info(`Land "${landObjekt.code}" gespeichert.`);
     anzahlDatensaetzeToLogger();
 }
 

@@ -54,17 +54,19 @@ export function holeLandNachCode( code ) {
  * @returns `true`, wenn Land erfolgreich gespeichert wurde,
  *          sonst `false`.
  */
-export function neuesLand(landObjekt) {
+export async function neuesLand(landObjekt) {
 
-    const altLand = holeLandNachCode(landObjekt.code);
+    const altLand = queryLandByCode(landObjekt.code);
     if (altLand) {
 
         logger.warn(`Land mit Code "${landObjekt.code}" existiert bereits.`);
         return false;
     }
 
-    upsertLand(landObjekt);
+    await upsertLand(landObjekt); // Datenbank-Operation
 
     const jsonString = JSON.stringify(landObjekt);
     logger.info("Neues Land gespeichert: " + jsonString);
+
+    return true;
 }

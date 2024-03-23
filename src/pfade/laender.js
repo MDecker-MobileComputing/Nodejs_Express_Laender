@@ -35,7 +35,7 @@ export default function () {
      * Funktion für HTTP-POST-Request auf Collection:
      * Neues Land anlegen.
      */
-    function POST(req, res, next) {
+    async function POST(req, res, next) {
 
         const neuLand = {
             code      : req.body.code.trim().toUpperCase(),
@@ -44,7 +44,7 @@ export default function () {
             einwohner : req.body.einwohner
         };
 
-        const erfolgreich = neuesLand( neuLand );
+        const erfolgreich = await neuesLand( neuLand );
         if (erfolgreich) {
 
             res.status(201); // 201: CREATED
