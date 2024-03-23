@@ -80,12 +80,33 @@ export default function () {
         }
     };
 
-    /*
     POST.apiDoc = {
         summary: "Neues Land anlegen",
-        operationId: "neuesLand"
+        operationId: "neuesLand",
+        responses: {
+            201: {
+                description: "Land erfolgreich angelegt",
+                content: {
+                    "application/json": {
+                        schema: {
+                            $ref: "#/components/schemas/Land"
+                        }
+                    }
+                }
+            },
+            409: {
+                description: "Land existiert bereits",
+                content: {
+                    "application/json": {
+                        schema: {
+                            type: "object"
+                        }
+                    }
+                }
+            }
+        }
     };
-    */
+
 
     return operations;
   }

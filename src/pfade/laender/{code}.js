@@ -37,5 +37,32 @@ export default function () {
         }
     }
 
+    GET.apiDoc = {
+        summary: "Einzelnes Land",
+        operationId: "getLand",
+        responses: {
+            200: {
+                description: "Land gefunden",
+                content: {
+                    "application/json": {
+                        schema: {
+                            $ref: "#/components/schemas/Land"
+                        }
+                    }
+                }
+            }, 
+            404: {
+                description: "Land nicht gefunden",
+                content: {
+                    "application/json": {
+                        schema: {
+                            type: "object"
+                        }
+                    }
+                }
+            }
+        }
+    };    
+
     return operations;
 };
