@@ -5,7 +5,8 @@ import { holeAlleLaender } from "../service.js";
  * Operationen für den Pfad "/laender" (Collection).
  * <br><br>
  *
- * Liste der 3-Buchstabencodes für Länder: https://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste
+ * Liste der 3-Buchstabencodes für Länder (ISO 3166-1 Alpha 3):
+ * https://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste
  *
  * @returns Objekt mit den Operationen für den Pfad "/laender"
  */

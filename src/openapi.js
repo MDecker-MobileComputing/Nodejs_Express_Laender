@@ -20,7 +20,7 @@ export function initializeOpenApi(app) {
         app,
         apiDoc       : "./doc/api-definition-base.yml",
         paths        : "./src/pfade",
-        docsPath     : "/api-definition",
+        docsPath     : "/api-definition", // http://localhost:8080/api/v1/api-definition
         exposeApiDocs: istNichtProduktiv
       });
 

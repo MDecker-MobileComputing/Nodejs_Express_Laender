@@ -4,6 +4,8 @@ import { getLogger } from './logger.js';
 
 const logger = getLogger(import.meta.url);
 
+
+/** Initiale Daten wenn Datenbankdatei noch leer ist. */
 const anfangsDaten =  {
 
     "DEU": {
@@ -54,6 +56,20 @@ export function queryAlleLaender() {
     const ergebnisSortiertArray = laenderArray.sort( sortiertFunktion );
 
     return ergebnisSortiertArray;
+}
+
+
+/**
+ * Einzelnes Land anhand von ISO-Code abfragen.
+ *
+ * @param {*} code ISO-Code (ISO 3166-1 Alpha 3) des Landes,
+ *                 z.B. "DEU" für Deutschland
+ *
+ * @returns Landobjekt oder `undefined`, wenn Land nicht gefunden
+ */
+export function queryLandByCode(code) {
+
+    return datenbank.data[ code ];
 }
 
 
