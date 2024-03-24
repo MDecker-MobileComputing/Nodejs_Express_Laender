@@ -2,13 +2,8 @@
 
 <br>
 
-REST-API für Länder, basierend auf einer OpenAPI-Spezifikation, die zur Laufzeit anhand der Quellcode-Dateien 
-im Verzeichnis [src/pfade/](src/pfade) von `swagger-ui-express` ergänzt wird:
-
-* Open-API-Spezifikation ohne Pfade (statisch): []
-* Open-API-Spezifikation mit Pfadem (dynamisch):
-
- 
+REST-API für Länder, basierend auf einer OpenAPI-Spezifikation, die zur Laufzeit anhand der Quellcode-Dateien
+im Verzeichnis [src/pfade/](src/pfade) von `swagger-ui-express` ergänzt wird.
 
 <br>
 
