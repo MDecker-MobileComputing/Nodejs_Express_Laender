@@ -25,6 +25,34 @@ export function holeAlleLaender() {
     return laenderArray
 }
 
+/**
+ * Volltextsuche nach Ländern.
+ *
+ * @param {*} suchstring Such-String, der im Landesnamen oder in der Hauptstadt vorkommen kann.
+ *
+ * @return Array mit Treffern oder leerer Array, wenn kein Land gefunden wurde.
+ */
+export function sucheLand(suchstring) {
+
+    const laenderArray = queryAlleLaender();
+
+    const suchstringNormalisiert = suchstring.trim().toLowerCase();
+
+    const filterFunktion = (land) => {
+            return land.name.toLowerCase().includes(       suchstringNormalisiert ) ||
+                   land.hauptstadt.toLowerCase().includes( suchstringNormalisiert );
+        };
+
+    const trefferArray = laenderArray.filter( filterFunktion );
+
+    if ( trefferArray.length === 0 ) {
+
+        logger.warn(`Kein Land gefunden, das den Suchstring "${suchstring}" enthält.`);
+    }
+
+    return trefferArray;
+}
+
 
 /**
  * Einzelnes Land anhand des Ländercodes zurückgeben.

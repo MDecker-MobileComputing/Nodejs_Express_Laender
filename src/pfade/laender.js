@@ -1,6 +1,6 @@
 
 import { holeAlleLaender }           from "../service.js";
-import { neuesLand }                 from "../service.js";
+import { neuesLand, sucheLand }      from "../service.js";
 import { CUSTOM_HEADER_FEHLER_TEXT } from "../konstanten.js";
 
 
@@ -26,9 +26,33 @@ export default function () {
      */
     function GET(req, res, next) {
 
-        const laenderArray = holeAlleLaender();
+        const suchString = req.query.q;
 
-        res.status(200).json( laenderArray );
+        let laenderArray = null;
+        if (suchString) {
+
+            laenderArray = sucheLand( suchString );
+            if (laenderArray.length === 0) {
+
+                res.setHeader( CUSTOM_HEADER_FEHLER_TEXT,
+                               `Kein Land gefunden, das den Suchstring "${suchString}" enthält.` );
+            }
+
+        } else {
+
+            laenderArray = holeAlleLaender();
+        }
+
+        if (laenderArray.length > 0) {
+
+            res.status( 200 ); // OK
+            res.json( laenderArray );
+
+        } else {
+
+            res.status( 404 ); // NOT FOUND
+            res.json( laenderArray );
+        }
     }
 
 
@@ -54,12 +78,13 @@ export default function () {
         } else {
 
             res.status(409); // 409: CONFLICT
-            res.setHeader( CUSTOM_HEADER_FEHLER_TEXT, `Land mit Code "${neuLand.code}" existiert bereits.` );
+            res.setHeader( CUSTOM_HEADER_FEHLER_TEXT,
+                           `Land mit Code "${neuLand.code}" existiert bereits.` );
             res.json( {} );
         }
     };
 
-    
+
     GET.apiDoc = {
         summary: "Liste aller Länder",
         operationId: "getLaender",
@@ -76,7 +101,7 @@ export default function () {
                         }
                     }
                 }
-            }, 
+            },
         }
     };
 
@@ -91,7 +116,7 @@ export default function () {
                     }
                 }
             }
-        },        
+        },
         responses: {
             201: {
                 description: "Land erfolgreich angelegt",
