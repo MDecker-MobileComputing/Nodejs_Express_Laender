@@ -1,0 +1,5 @@
+
+tasks:
+  - init: npm install # beim Anlegen neuer Workspace
+    command: git pull # beim Start des Workspace
+
