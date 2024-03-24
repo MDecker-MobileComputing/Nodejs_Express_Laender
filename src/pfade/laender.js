@@ -88,6 +88,17 @@ export default function () {
     GET.apiDoc = {
         summary: "Liste aller Länder",
         operationId: "getLaender",
+        parameters: [
+            {
+                name: "q",
+                in: "query",
+                description: "Optionaler Such-String für Ländername oder Hauptstadt",
+                required: false,
+                schema: {
+                    type: "string"
+                }
+            }
+        ],
         responses: {
             200: {
                 description: "Liste aller Länder",
@@ -98,6 +109,16 @@ export default function () {
                             items: {
                                 $ref: "#/components/schemas/Land"
                             }
+                        }
+                    }
+                }
+            },
+            404: {
+                description: "Keine Länder gefunden (Datenbank leer oder keine Treffer für Such-String",
+                content: {
+                    "application/json": {
+                        schema: {
+                            type: "array"
                         }
                     }
                 }
