@@ -20,15 +20,13 @@ im Verzeichnis [src/pfade/](src/pfade) von `swagger-ui-express` ergänzt wird.
 
 <br>
 
-* Die Werte für `code` beim Zugriff auf die Ressource sind
+* Die Werte für den Pfadparameter `code` beim Zugriff auf die Ressource sind
   [dreibuchstabige Codes für Länder nach "ISO-3166 Alpha 3"](https://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste),
   z.B. "DEU" für Deutschland oder "FRA" für Frankreich.
 
 * Die Operation `GET` auf der Collection unterstützt auch den URL-Parameter `q` für eine Volltextsuche (durchsucht Name des Landes und Hauptstadt).
 
 <br>
-
-siehe auch:
 
 ----
 
