@@ -11,6 +11,17 @@ siehe auch: [Dreibuchstabige Codes für Länder nach "ISO-3166 Alpha 3"](https:/
 
 <br>
 
+| Beschreibung      | **URL-Pfad**                | `GET` | `POST` | `PUT` | `PATCH` | `DELETE` |
+|-------------------|-----------------------------| :---: | :---:  | :---: | :---:   | :---:    |
+| Ressource  "Land" | `/api/v1/laender/:code`     | X     |        |       |         |          |
+| Collection "Land" | `/api/v1/laender/`          | X     | X      |       |         |          |
+
+<br>
+
+Die Operation `GET` auf der Ressource unterstützt auch den URL-Parameter `q` für eine Volltextsuche (durchsucht Name des Landes und Hauptstadt).
+
+<br>
+
 ----
 
 ## License ##
