@@ -4,7 +4,7 @@
     {
       "entity": {
         "type": "Project",
-        "id": "fadeb4a9-1a59-430c-9fec-034db538d7be",
+        "id": "9379de75-1a29-4984-8f9a-a479ffb0d01a",
         "name": "Länder"
       },
       "children": [
@@ -35,7 +35,7 @@
               "host": "localhost:8080",
               "path": "/api/v1/laender"
             },
-            "id": "705dcbe1-dbc7-4f26-bde1-54b27d4f0865",
+            "id": "c95580cd-0e0c-47c2-be4a-87ad5eeaccad",
             "name": "GET Collection",
             "headers": []
           }
@@ -73,7 +73,7 @@
               "host": "localhost:8080",
               "path": "/api/v1/laender"
             },
-            "id": "62c16910-5d0e-4acd-9506-66aae765f588",
+            "id": "30e27a7a-c55d-4578-a394-df71aaf7194c",
             "name": "GET Collection q=land",
             "headers": []
           }
@@ -105,7 +105,7 @@
               "host": "localhost:8080",
               "path": "/api/v1/laender/DEUx"
             },
-            "id": "7031ee23-658b-4b2b-9ecb-9476a8caee81",
+            "id": "cd9b270d-c9b8-47bf-89a5-f9c09c7a90a3",
             "name": "GET Ressource \"DEU\"",
             "headers": []
           }
@@ -139,8 +139,48 @@
               "host": "localhost:8080",
               "path": "/api/v1/laender"
             },
-            "id": "866a3b2d-a825-4e37-9334-664fb1b636a9",
-            "name": "POST Collection (Neues Land)",
+            "id": "fd21dc63-97af-45d0-886b-1aedcf732be7",
+            "name": "POST Collection: Spanien",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"code\": \"ESP\",\n  \"name\": \"Spanien\",\n  \"hauptstadt\": \"Madrid\",\n  \"einwohner\": 48500000\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/api/v1/laender"
+            },
+            "id": "0efe4902-c364-43af-b5dc-53f9640dfcff",
+            "name": "POST Collection: Österreich",
             "headers": [
               {
                 "enabled": true,
