@@ -7,7 +7,9 @@ im Verzeichnis [src/pfade/](src/pfade) von `swagger-ui-express` ergänzt wird.
 
 <br>
 
-siehe auch: [Dreibuchstabige Codes für Länder nach "ISO-3166 Alpha 3"](https://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste)
+----
+
+## Unterstützte HTTP-Operationen ##
 
 <br>
 
@@ -18,9 +20,15 @@ siehe auch: [Dreibuchstabige Codes für Länder nach "ISO-3166 Alpha 3"](https:/
 
 <br>
 
-Die Operation `GET` auf der Ressource unterstützt auch den URL-Parameter `q` für eine Volltextsuche (durchsucht Name des Landes und Hauptstadt).
+* Die Werte für `code` beim Zugriff auf die Ressource sind
+  [dreibuchstabige Codes für Länder nach "ISO-3166 Alpha 3"](https://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste),
+  z.B. "DEU" für Deutschland oder "FRA" für Frankreich.
+
+* Die Operation `GET` auf der Collection unterstützt auch den URL-Parameter `q` für eine Volltextsuche (durchsucht Name des Landes und Hauptstadt).
 
 <br>
+
+siehe auch:
 
 ----
 
