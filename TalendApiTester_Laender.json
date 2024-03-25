@@ -125,6 +125,46 @@
                 "items": []
               },
               "bodyType": "Text",
+              "textBody": "{\n  \"code\": \"ITA\",\n  \"name\": \"Italien\",\n  \"hauptstadt\": \"Rom\",\n  \"einwohner\": 58853482\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8080",
+              "path": "/api/v1/laender"
+            },
+            "id": "1ac5f051-6540-4e22-ad19-f7cbb771c090",
+            "name": "POST Collection: Italien",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
               "textBody": "{\n  \"code\": \"ESP\",\n  \"name\": \"Spanien\",\n  \"hauptstadt\": \"Madrid\",\n  \"einwohner\": 48500000\n}"
             },
             "uri": {
@@ -165,7 +205,7 @@
                 "items": []
               },
               "bodyType": "Text",
-              "textBody": "{\n  \"code\": \"ESP\",\n  \"name\": \"Spanien\",\n  \"hauptstadt\": \"Madrid\",\n  \"einwohner\": 48500000\n}"
+              "textBody": "{\n  \"code\": \"AUT\",\n  \"name\": \"Österreich\",\n  \"hauptstadt\": \"Wien\",\n  \"einwohner\": 9104772\n}"
             },
             "uri": {
               "query": {

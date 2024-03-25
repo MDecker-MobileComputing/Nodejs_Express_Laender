@@ -131,9 +131,9 @@ export default function () {
         operationId: "neuesLand",
         requestBody: {
             content: {
-                'application/json': {
+                "application/json": {
                     schema: {
-                        $ref: '#/components/schemas/Land'
+                        $ref: "#/components/schemas/Land"
                     }
                 }
             }
