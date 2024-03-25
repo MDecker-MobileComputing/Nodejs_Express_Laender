@@ -49,7 +49,8 @@ export function getLogger(importMetaUrl) {
             rotierendeLogDateiTransport
         ];
   if (istNichtProduktiv) {
-    transportsArray.push(new winston.transports.Console());
+
+    transportsArray.push( new winston.transports.Console() );
   }
 
   return winston.createLogger({
