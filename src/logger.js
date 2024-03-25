@@ -20,18 +20,18 @@ const LOG_ORDNER = "logs/";
  */
 export function getLogger(importMetaUrl) {
 
-  const dateiname = path.basename(url.fileURLToPath(importMetaUrl));
+  const dateiname = path.basename( url.fileURLToPath(importMetaUrl) );
 
   const rotierendeLogDateiTransport =
         new DailyRotateFile({
-        filename: `${LOG_ORDNER}/application-%DATE%.log`,
-        datePattern: "YYYY-MM-DD_HH-mm",
-        frequency: "3m", // alle 3 Minuten neues Log-File (für Demo-Zwecke), wird evtl. erst nach Log-Nachricht gemacht
-        zippedArchive: true,
-        auditFile: `${LOG_ORDNER}/logrotate-audit.json`, // Datei mit Informationen über rotierte Log-Dateien
-        maxSize: "20m",
-        maxFiles: "5d"
-  });
+                      filename: `${LOG_ORDNER}/application-%DATE%.log`,
+                      datePattern: "YYYY-MM-DD_HH-mm",
+                      frequency: "3m", // alle 3 Minuten neues Log-File (für Demo-Zwecke), wird evtl. erst nach Log-Nachricht gemacht
+                      zippedArchive: false, // keine Komprimierung der alten Log-Dateien
+                      auditFile: `${LOG_ORDNER}/logrotate-audit.json`, // Datei mit Informationen über rotierte Log-Dateien
+                      maxSize: "20m",
+                      maxFiles: "30d" });
+
   rotierendeLogDateiTransport.on("rotate", (dateinameAlt, dateinameNeu) => {
 
      console.log(`Log-Datei rotiert: ${dateinameAlt} -> ${dateinameNeu}`);
@@ -44,10 +44,10 @@ export function getLogger(importMetaUrl) {
 
   // Ziele für die Log-Nachrichten definieren; wenn nicht in Produktionsumgebung, dann zusätzlich auf Konsole ausgeben
   const transportsArray =  [
-    new winston.transports.File({ filename: `${LOG_ORDNER}/application-error.log`, level: "error" }),
-    new winston.transports.File({ filename: `${LOG_ORDNER}/application.log` }),
-    rotierendeLogDateiTransport
-  ]
+            new winston.transports.File({ filename: `${LOG_ORDNER}/application-error.log`, level: "error" }),
+            new winston.transports.File({ filename: `${LOG_ORDNER}/application.log` }),
+            rotierendeLogDateiTransport
+        ];
   if (istNichtProduktiv) {
     transportsArray.push(new winston.transports.Console());
   }
