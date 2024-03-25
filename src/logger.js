@@ -38,7 +38,7 @@ export function getLogger(importMetaUrl) {
   });
   rotierendeLogDateiTransport.on("error", fehler => {
 
-    console.log("Fehler beim Log-Rotate:" + fehler);
+    console.log("Fehler beim Log-Rotate: " + fehler);
   });
 
 

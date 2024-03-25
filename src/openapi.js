@@ -1,6 +1,4 @@
 import { initialize } from "express-openapi";
-import swaggerUi      from "swagger-ui-express";
-import YAML           from "yamljs";
 
 import { getLogger }         from './logger.js';
 import { istNichtProduktiv } from './modus.js';
