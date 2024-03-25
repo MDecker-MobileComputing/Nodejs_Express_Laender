@@ -35,7 +35,7 @@ export default function () {
             res.status( 200 );
             res.json( landObjekt );
         }
-    }
+    };
 
     GET.apiDoc = {
         summary: "Einzelnes Land",
