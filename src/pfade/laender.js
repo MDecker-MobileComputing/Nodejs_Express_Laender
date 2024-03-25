@@ -114,7 +114,7 @@ export default function () {
                 }
             },
             404: {
-                description: "Keine Länder gefunden (Datenbank leer oder keine Treffer für Such-String",
+                description: "Keine Länder gefunden (Datenbank leer oder keine Treffer für Such-String)",
                 content: {
                     "application/json": {
                         schema: {
