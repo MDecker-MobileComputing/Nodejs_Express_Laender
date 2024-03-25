@@ -45,14 +45,14 @@ export default function () {
 
         if (laenderArray.length > 0) {
 
-            res.status( 200 ); // OK
-            res.json( laenderArray );
+            res.status( 200 );
 
         } else {
 
-            res.status( 404 ); // NOT FOUND
-            res.json( laenderArray );
+            res.status( 404 );
         }
+
+        res.json( laenderArray );
     }
 
 
