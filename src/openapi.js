@@ -27,6 +27,5 @@ export function initializeOpenApi(app) {
         exposeApiDocs: istNichtProduktiv
       });
 
-
     logger.info("OpenAPI initialisiert");
 }
